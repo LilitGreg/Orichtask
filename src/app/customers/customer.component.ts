@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
 
 import { debounceTime } from 'rxjs/operators';
@@ -38,6 +38,8 @@ export class CustomerComponent implements OnInit {
   customerForm: FormGroup;
   customer = new Customer();
   emailMessage: string;
+  @Input() custom: Customer;
+
 
   get addresses(): FormArray {
     return this.customerForm.get('addresses') as FormArray;
