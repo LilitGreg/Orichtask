@@ -88,7 +88,27 @@ export class CustomerComponent implements OnInit {
       value => this.setMessage(emailControl)
     );
 
+    this.handleFormChanges();
+
   }
+
+
+  handleFormChanges() {
+    this.customerForm.valueChanges.subscribe((customer: Customer) => {
+      console.log('username: ' + customer.firstName);
+      console.log('lastname: ' + customer.lastName);
+    });
+    this.customerForm.statusChanges.subscribe(status => {
+      console.log('Form validation status: '  + status);
+      //return status;
+    });
+    // this.firstName.statusChanges.subscribe(
+    //   status => {
+    //      console.log('Username validation status: '+ status);
+    //   }
+    // ); 
+  }
+
 
   addAddress(): void {
     this.addresses.push(this.buildAddress());

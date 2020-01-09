@@ -2,19 +2,21 @@ import {  Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray, NgForm } from '@angular/forms';
 import { CustomerComponent } from './customers/customer.component';
-
+import { Observable } from 'rxjs';
+// import {AfterViewInit}  from 'afterviewinit';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit  {
 
   @ViewChild('clearRef', {static: false}) nameClearRef: ElementRef;
 
 
   @ViewChild (CustomerComponent, {static: false} ) primaryCustomComponent: CustomerComponent;
   public form: FormGroup;
+  // get statusChanges: Observable;
 
   // @ViewChild (NgForm, {static: false} ) Ngg: NgForm;
   //this.form = this.primaryCustomComponent.customerForm;
@@ -22,6 +24,15 @@ export class AppComponent {
   title = 'Hello Team';
 
   //titleInput = 'Hello Customer';
+
+  ngOnInit() {
+   // this.statusChanges();
+    //this.form = this.primaryCustomComponent.customerForm;
+  }
+  // ngAfterViewInit() {
+  //   this.form = this.primaryCustomComponent.customerForm;
+
+  // }
 
   public enableDisablec(): void {
      this.primaryCustomComponent.valid();
@@ -56,9 +67,16 @@ export class AppComponent {
   }
 
 
-  statusChanges() {
-    this.primaryCustomComponent.valid();
-    //return this.primaryCustomComponent.valid;  
+  statusChanges(): void {
+    this.primaryCustomComponent.handleFormChanges();
+
+    
   }
+
+  // statusChanges() {
+  //   this.primaryCustomComponent.valid();
+  //   //return this.primaryCustomComponent.valid;  
+  // }
+
 }
 
