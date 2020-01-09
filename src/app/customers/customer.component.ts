@@ -38,7 +38,8 @@ export class CustomerComponent implements OnInit {
   customerForm: FormGroup;
   customer = new Customer();
   emailMessage: string;
-  @Input() custom: Customer;
+   @Input() custom: string;
+ // @Input() property: string = 'default';
 
 
   get addresses(): FormArray {

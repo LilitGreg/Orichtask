@@ -6,7 +6,10 @@
   <div class="card-body">
     <form novalidate
           (ngSubmit)="save()"
-          [formGroup]="customerForm">
+          [formGroup]="customerForm"
+
+          >
+          {{custom}}
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label"   for="firstNameId">First Name</label>
