@@ -7,9 +7,10 @@
     <form novalidate
           (ngSubmit)="save()"
           [formGroup]="customerForm"
+          #customreRefrence="ngForm"
 
           >
-          {{custom}}
+         <h1>  {{custom}} </h1>
 
       <div class="form-group row mb-2">
         <label class="col-md-2 col-form-label"   for="firstNameId">First Name</label>

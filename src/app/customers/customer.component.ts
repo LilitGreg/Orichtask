@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray } from '@angular/forms';
+import { Component, OnInit, Input, ViewChild,  EventEmitter, Output  } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray, NgForm } from '@angular/forms';
 
 import { debounceTime } from 'rxjs/operators';
 
@@ -35,10 +35,19 @@ function ratingRange(min: number, max: number): ValidatorFn {
   styleUrls: ['./customer.component.css']
 })
 export class CustomerComponent implements OnInit {
+
+  @ViewChild(NgForm, {static: false}) customreRefrence: NgForm;
+
   customerForm: FormGroup;
   customer = new Customer();
   emailMessage: string;
    @Input() custom: string;
+
+
+   //@Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
+
+
+
  // @Input() property: string = 'default';
 
 
@@ -134,6 +143,34 @@ export class CustomerComponent implements OnInit {
       phoneControl.clearValidators();
     }
     phoneControl.updateValueAndValidity();
+  }
+
+
+  valid() {
+    ///return this.customerForm.valid;
+    // let changeValid =this.customerForm.valid;
+
+    // console.log(changeValid);
+    //  const statuss = this.customerForm.valid;
+
+    //  return status;
+
+     console.log(this.customerForm.valid);
+  
+    
+  } 
+
+
+  reset() {
+    //console.log("clear1");
+
+    // const firstN = this.customerForm.get('firstName');
+    // console.log(firstN);
+    this.customerForm.reset();
+
+    //console.log(this.customerForm.reset());
+
+
   }
 
 }

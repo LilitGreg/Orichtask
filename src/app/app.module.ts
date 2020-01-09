@@ -5,12 +5,14 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CustomerComponent } from './customers/customer.component';
 import { SearchBoxDirective } from './search-box.directive';
+import { PanelDirective } from './panel.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerComponent,
-    SearchBoxDirective
+    SearchBoxDirective,
+    PanelDirective
   ],
   imports: [
     BrowserModule,
