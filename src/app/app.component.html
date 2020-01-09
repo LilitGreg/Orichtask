@@ -11,15 +11,41 @@
   <div class="form-group row mb-2">
     <div class="offset-md-2 col-md-4">
       <!-- [title]="customerForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'" -->
-      <!-- [disabled]="!customerForm.valid"> -->
-      <button class="btn btn-primary mr-3"
+      <!-- [disabled]="!customerForm.valid"> 
+       [disabled]="form.valid" 
+      (click) ="enableDisablec()"
+
+
+      [disabled] ="shouldShow ? 'valid':'invalid'" 
+       {{shouldShow }}
+       -->
+
+
+      <button  *ngIf="shouldShow" class="btn btn-primary mr-3"
           type="button"
           style="width:80px"
-          (click) ="enableDisablec()"
+          (click)="toggle()"
+          [disabled] = false
           
         >
-         Enable
+        Enable
+        <!-- <p id="1" *ngIf="shouldShow"> Enable </p>
+        <p id="2" *ngIf="!shouldShow"> Disable </p> -->
+        
 
+      </button>
+
+      <button  *ngIf="!shouldShow" class="btn btn-primary mr-3"
+          type="button"
+          style="width:80px"
+          (click)="toggle()"
+          [disabled] = true
+          
+        >
+        Disable
+        <!-- <p id="1" *ngIf="shouldShow"> Enable </p>
+        <p id="2" *ngIf="!shouldShow"> Disable </p> -->
+        
 
       </button>
 
@@ -41,13 +67,18 @@
      (click) ="PopulateFunc()">
       Populate
      </button>
-     <!-- [disabled]="primaryCustomComponent.customerForm.valid" -->
+     <!-- [disabled]="primaryCustomComponent.customerForm.valid" 
+      .///my
+       
+        (click) ="primaryCustomComponent.handleFormChanges()"
+      [disabled] = "primaryCustomComponent.handleFormChanges()? 'valid': 'invalid'"
+     
+      -->
      <button class="btn btn-primary mr-3"
       type="button"
       style="width:80px"
-      (click) ="statusChang()"
       
-     
+      (click) ="statusChang()"
       >
       Submit
      </button>

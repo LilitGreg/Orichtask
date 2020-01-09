@@ -95,11 +95,11 @@ export class CustomerComponent implements OnInit {
   }
 
 
-  handleFormChanges() {
-    this.customerForm.valueChanges.subscribe((customer: Customer) => {
-      console.log('username: ' + customer.firstName);
-      console.log('lastname: ' + customer.lastName);
-    });
+  handleFormChanges(): void {
+    // this.customerForm.valueChanges.subscribe((customer: Customer) => {
+    //   console.log('username: ' + customer.firstName);
+    //   console.log('lastname: ' + customer.lastName);
+    // });
     this.customerForm.statusChanges.subscribe(status => {
       console.log('Form validation status: '  + status);
       //return status;
@@ -168,7 +168,7 @@ export class CustomerComponent implements OnInit {
   }
 
 
-  valid() {
+  valid()  {
     ///return this.customerForm.valid;
     // let changeValid =this.customerForm.valid;
 

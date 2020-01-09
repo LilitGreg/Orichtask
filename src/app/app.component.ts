@@ -1,4 +1,4 @@
-import {  Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
+import { AfterViewInit, Component, OnInit, Input, ViewChild, ElementRef} from '@angular/core';
 
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray, NgForm } from '@angular/forms';
 import { CustomerComponent } from './customers/customer.component';
@@ -9,13 +9,14 @@ import { Observable } from 'rxjs';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit  {
+export class AppComponent implements OnInit , AfterViewInit {
 
-  @ViewChild('clearRef', {static: false}) nameClearRef: ElementRef;
+  //@ViewChild('clearRef', {static: false}) nameClearRef: ElementRef;
 
 
   @ViewChild (CustomerComponent, {static: false} ) primaryCustomComponent: CustomerComponent;
   public form: FormGroup;
+  public shouldShow =  true;
   // get statusChanges: Observable;
 
   // @ViewChild (NgForm, {static: false} ) Ngg: NgForm;
@@ -30,10 +31,17 @@ export class AppComponent implements OnInit  {
    // this.statusChanges();
     //this.form = this.primaryCustomComponent.customerForm;
   }
+
+  ngAfterViewInit() {
+    // child is set
+    this.form = this.primaryCustomComponent.customerForm;
+  }
   // ngAfterViewInit() {
   //   this.form = this.primaryCustomComponent.customerForm;
 
   // }
+
+  public  toggle() { this.shouldShow = !this.shouldShow; }
 
   public enableDisablec(): void {
      this.primaryCustomComponent.valid();
