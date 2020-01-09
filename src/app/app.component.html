@@ -1,8 +1,10 @@
 <div class="container">
-  <app-customer   (CustomTogg) = "Toggle($event)"   [custom] = "title"
+  <app-customer     [custom] = "title"
    #CustomerComponent></app-customer>
 
+
 </div>
+
 
 
 
@@ -39,12 +41,13 @@
      (click) ="PopulateFunc()">
       Populate
      </button>
-
-
+     <!-- [disabled]="primaryCustomComponent.customerForm.valid" -->
      <button class="btn btn-primary mr-3"
       type="button"
       style="width:80px"
       (click) ="statusChanges()"
+      
+      
       >
       Submit
      </button>

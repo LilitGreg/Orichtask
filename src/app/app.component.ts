@@ -14,19 +14,22 @@ export class AppComponent {
 
 
   @ViewChild (CustomerComponent, {static: false} ) primaryCustomComponent: CustomerComponent;
+  public form: FormGroup;
+
+  // @ViewChild (NgForm, {static: false} ) Ngg: NgForm;
+  //this.form = this.primaryCustomComponent.customerForm;
 
   title = 'Hello Team';
 
   //titleInput = 'Hello Customer';
 
-  enableDisablec() {
+  public enableDisablec(): void {
      this.primaryCustomComponent.valid();
 
     // console.log(this.primaryCustomComponent);
     // console.log( this.primaryCustomComponent.valid() );
   }
-
-  enableDisable() {
+  public enableDisable(): boolean {
 
     let indic = true;
     return indic = !indic;
@@ -40,7 +43,7 @@ export class AppComponent {
 //     console.log("tog");
 //  }
 
-  clearFunc() {
+  public clearFunc(): void {
     //console.log('clear');
     this.primaryCustomComponent.reset();
 
@@ -48,7 +51,7 @@ export class AppComponent {
   }
 
 
-  PopulateFunc() {
+  public PopulateFunc(): void {
     this.primaryCustomComponent.populateTestData();
   }
 
