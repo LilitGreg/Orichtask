@@ -22,6 +22,7 @@ export class AppComponent implements OnInit  {
   //this.form = this.primaryCustomComponent.customerForm;
 
   title = 'Hello Team';
+  //statusChanges: boolean;
 
   //titleInput = 'Hello Customer';
 
@@ -67,7 +68,7 @@ export class AppComponent implements OnInit  {
   }
 
 
-  statusChanges(): void {
+  statusChang(): void {
     this.primaryCustomComponent.handleFormChanges();
 
     

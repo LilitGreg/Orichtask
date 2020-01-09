@@ -43,6 +43,8 @@ export class CustomerComponent implements OnInit {
   emailMessage: string;
    @Input() custom: string;
 
+   
+
 
    //@Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
 
