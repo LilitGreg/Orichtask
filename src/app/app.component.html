@@ -20,6 +20,8 @@
 
       [disabled] ="shouldShow ? 'valid':'invalid'" 
        {{shouldShow }}
+
+       [disabled] = false
        -->
 
 
@@ -27,7 +29,6 @@
           type="button"
           style="width:80px"
           (click)="toggle()"
-          [disabled] = false
           
         >
         Enable
@@ -41,7 +42,7 @@
           type="button"
           style="width:80px"
           (click)="toggle()"
-          [disabled] = true
+         
           
         >
         Disable
