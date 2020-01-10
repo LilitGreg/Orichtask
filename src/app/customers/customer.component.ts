@@ -42,8 +42,7 @@ export class CustomerComponent implements OnInit {
   customer = new Customer();
   emailMessage: string;
    @Input() custom: string;
-
-   
+   ///@Output() validStatus: EventEmitter<boolean> = new EventEmitter();
 
 
    //@Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
@@ -51,6 +50,8 @@ export class CustomerComponent implements OnInit {
 
 
  // @Input() property: string = 'default';
+
+ // public arignanq: boolean = this.customerForm.valid;
 
 
   get addresses(): FormArray {
@@ -90,7 +91,7 @@ export class CustomerComponent implements OnInit {
       value => this.setMessage(emailControl)
     );
 
-    this.handleFormChanges();
+   /// this.handleFormChanges();
 
   }
 
@@ -194,5 +195,12 @@ export class CustomerComponent implements OnInit {
 
 
   }
+
+ 
+
+  // ari(arignanq) {
+
+  //   this.validStatus.emit(arignanq);
+  // }
 
 }

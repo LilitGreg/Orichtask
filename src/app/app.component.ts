@@ -23,6 +23,7 @@ export class AppComponent implements OnInit , AfterViewInit {
   //this.form = this.primaryCustomComponent.customerForm;
 
   title = 'Hello Team';
+  validStatus: boolean; 
   //statusChanges: boolean;
 
   //titleInput = 'Hello Customer';
@@ -81,6 +82,13 @@ export class AppComponent implements OnInit , AfterViewInit {
 
     
   }
+
+  // valSt(event) {
+  //   console.log(event);
+    
+  // }
+
+  
 
   // statusChanges() {
   //   this.primaryCustomComponent.valid();
