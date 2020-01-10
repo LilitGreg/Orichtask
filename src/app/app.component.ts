@@ -95,6 +95,11 @@ export class AppComponent implements OnInit , AfterViewInit {
   }
 
   
+  public submit(): void {
+    this.primaryCustomComponent.save();
+
+    ///console.log(this.primaryCustomComponent);
+  }
 
   // statusChanges() {
   //   this.primaryCustomComponent.valid();
