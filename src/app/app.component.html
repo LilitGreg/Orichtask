@@ -77,13 +77,13 @@
       (click) ="statusChang()"
       -->
 
-      {{validInvalid}}
+      <!-- {{validInvalid}} -->
 
      <button class="btn btn-primary mr-3"
       type="button"
       style="width:80px"
       
-      
+      [disabled] = !validInvalid
 
       >
       Submit

@@ -195,7 +195,12 @@ export class CustomerComponent implements OnInit {
     this.customerForm.statusChanges.subscribe(status => {
       console.log('ari from child: '  + status);
       //return status;
-      this.validStatus.emit(status);
+      if(status === 'VALID') {
+        this.validStatus.emit(true);
+      } else {
+        this.validStatus.emit(false);
+      }
+      
     });
 
      //this.validStatus.emit(status);
