@@ -18,7 +18,7 @@ function emailMatcher(c: AbstractControl): { [key: string]: boolean } | null {
   }
   return { match: true };
 }
-///custom validator with parameters
+/// custom validator with parameters
 
 function ratingRange(min: number, max: number): ValidatorFn {
   return (c: AbstractControl): { [key: string]: boolean } | null => {
@@ -45,7 +45,7 @@ export class CustomerComponent implements OnInit {
    @Output() validStatus: EventEmitter<boolean> = new EventEmitter();
 
 
-   //@Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
+   // @Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
 
 
 
@@ -67,8 +67,8 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     this.customerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern("[a-zA-Z ]*")]],
-      lastName: ['', [Validators.required,  Validators.maxLength(50), Validators.pattern("[a-zA-Z ]*")]],
+      firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      lastName: ['', [Validators.required,  Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       emailGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         confirmEmail: ['', Validators.required],
@@ -92,6 +92,21 @@ export class CustomerComponent implements OnInit {
     );
 
    /// this.handleFormChanges();
+
+
+    this.customerForm.statusChanges.subscribe(status => {
+    console.log('ari from child: '  + status);
+    // return status;
+    if (status === 'VALID') {
+      this.validStatus.emit(true);
+    } else {
+      this.validStatus.emit(false);
+    }
+
+  });
+
+
+
 
   }
 
@@ -161,7 +176,7 @@ export class CustomerComponent implements OnInit {
 
 
   valid()  {
-    ///return this.customerForm.valid;
+    /// return this.customerForm.valid;
     // let changeValid =this.customerForm.valid;
 
     // console.log(changeValid);
@@ -170,19 +185,19 @@ export class CustomerComponent implements OnInit {
     //  return status;
 
      console.log(this.customerForm.valid);
-  
-    
-  } 
+
+
+  }
 
 
   reset() {
-    //console.log("clear1");
+    // console.log("clear1");
 
     // const firstN = this.customerForm.get('firstName');
     // console.log(firstN);
     this.customerForm.reset();
 
-    //console.log(this.customerForm.reset());
+    // console.log(this.customerForm.reset());
 
 
   }
@@ -190,20 +205,20 @@ export class CustomerComponent implements OnInit {
 
   ari() {
 
-    //status = this.customerForm.status;
+    // status = this.customerForm.status;
 
     this.customerForm.statusChanges.subscribe(status => {
       console.log('ari from child: '  + status);
-      //return status;
-      if(status === 'VALID') {
+      // return status;
+      if (status === 'VALID') {
         this.validStatus.emit(true);
       } else {
         this.validStatus.emit(false);
       }
-      
+
     });
 
-     //this.validStatus.emit(status);
+     // this.validStatus.emit(status);
 
   }
 
