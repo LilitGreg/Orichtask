@@ -26,6 +26,8 @@ export class AppComponent implements OnInit , AfterViewInit {
   validStatus: boolean; 
   //statusChanges: boolean;
 
+  validInvalid = true;
+
   //titleInput = 'Hello Customer';
 
   ngOnInit() {
@@ -84,7 +86,9 @@ export class AppComponent implements OnInit , AfterViewInit {
   // }
 
   valSt(event) {
-    console.log(event);
+    console.log("ari from parent: " + event);
+    this.validInvalid = event;
+    // console.log(event);
   }
 
   

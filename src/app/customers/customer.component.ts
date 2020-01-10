@@ -193,7 +193,7 @@ export class CustomerComponent implements OnInit {
     //status = this.customerForm.status;
 
     this.customerForm.statusChanges.subscribe(status => {
-      console.log('ari: '  + status);
+      console.log('ari from child: '  + status);
       //return status;
       this.validStatus.emit(status);
     });
