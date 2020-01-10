@@ -44,7 +44,10 @@ export class AppComponent implements OnInit , AfterViewInit {
 
   // }
 
-  public  toggle() { this.shouldShow = !this.shouldShow; }
+  public  toggle() {
+    this.shouldShow = !this.shouldShow;
+    this.shouldShow ? this.primaryCustomComponent.customerForm.disable() : this.primaryCustomComponent.customerForm.enable();
+  }
 
   public enableDisablec(): void {
      this.primaryCustomComponent.valid();
