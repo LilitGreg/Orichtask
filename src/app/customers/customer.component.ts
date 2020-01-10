@@ -42,7 +42,7 @@ export class CustomerComponent implements OnInit {
   customer = new Customer();
   emailMessage: string;
    @Input() custom: string;
-   ///@Output() validStatus: EventEmitter<boolean> = new EventEmitter();
+   @Output() validStatus: EventEmitter<boolean> = new EventEmitter();
 
 
    //@Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
@@ -51,7 +51,7 @@ export class CustomerComponent implements OnInit {
 
  // @Input() property: string = 'default';
 
- // public arignanq: boolean = this.customerForm.valid;
+   public arignanq = 'outputtext';
 
 
   get addresses(): FormArray {
@@ -96,21 +96,12 @@ export class CustomerComponent implements OnInit {
   }
 
 
-  handleFormChanges(): void {
-    // this.customerForm.valueChanges.subscribe((customer: Customer) => {
-    //   console.log('username: ' + customer.firstName);
-    //   console.log('lastname: ' + customer.lastName);
-    // });
-    this.customerForm.statusChanges.subscribe(status => {
-      console.log('Form validation status: '  + status);
-      //return status;
-    });
-    // this.firstName.statusChanges.subscribe(
-    //   status => {
-    //      console.log('Username validation status: '+ status);
-    //   }
-    // ); 
-  }
+  // handleFormChanges(): void {
+  //   this.customerForm.statusChanges.subscribe(status => {
+  //     console.log('Form validation status: '  + status);
+  //     //return status;
+  //   });
+  // }
 
 
   addAddress(): void {
@@ -196,11 +187,19 @@ export class CustomerComponent implements OnInit {
 
   }
 
- 
 
-  // ari(arignanq) {
+  ari() {
 
-  //   this.validStatus.emit(arignanq);
-  // }
+    //status = this.customerForm.status;
+
+    this.customerForm.statusChanges.subscribe(status => {
+      console.log('ari: '  + status);
+      //return status;
+      this.validStatus.emit(status);
+    });
+
+     //this.validStatus.emit(status);
+
+  }
 
 }

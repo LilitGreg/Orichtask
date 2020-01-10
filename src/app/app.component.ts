@@ -77,16 +77,15 @@ export class AppComponent implements OnInit , AfterViewInit {
   }
 
 
-  statusChang(): void {
-    this.primaryCustomComponent.handleFormChanges();
+  // statusChang(): void {
+  //   this.primaryCustomComponent.handleFormChanges();
 
-    
-  }
-
-  // valSt(event) {
-  //   console.log(event);
     
   // }
+
+  valSt(event) {
+    console.log(event);
+  }
 
   
 

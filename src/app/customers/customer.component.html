@@ -324,9 +324,9 @@
             Test Data
           </button>
 
-           <!-- <button (click) ="ari(arignanq)">
-             AA
-           </button> -->
+           <button (click) ="ari()">
+             Test
+           </button>
         </div>
       </div>
     </form>
@@ -337,4 +337,5 @@
 <br>Valid: {{ customerForm.valid }}
 <br>Value: {{ customerForm.value | json }}
 <br>Street: {{ addresses.get('0.street1')?.value }}
+<br>Status: {{ customerForm.status }}
 <br>&nbsp;
