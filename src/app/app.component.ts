@@ -23,26 +23,22 @@ export class AppComponent implements OnInit , AfterViewInit {
   //this.form = this.primaryCustomComponent.customerForm;
 
   title = 'Hello Team';
-  validStatus: boolean; 
+  validStatus: boolean;
   //statusChanges: boolean;
 
   validInvalid = true;
 
-  //titleInput = 'Hello Customer';
+
 
   ngOnInit() {
-   // this.statusChanges();
-    //this.form = this.primaryCustomComponent.customerForm;
+
   }
 
   ngAfterViewInit() {
     // child is set
     this.form = this.primaryCustomComponent.customerForm;
   }
-  // ngAfterViewInit() {
-  //   this.form = this.primaryCustomComponent.customerForm;
 
-  // }
 
   public  toggle() {
     this.shouldShow = !this.shouldShow;
@@ -52,22 +48,9 @@ export class AppComponent implements OnInit , AfterViewInit {
   public enableDisablec(): void {
      this.primaryCustomComponent.valid();
 
-    // console.log(this.primaryCustomComponent);
-    // console.log( this.primaryCustomComponent.valid() );
   }
-  public enableDisable(): boolean {
-
-    let indic = true;
-    return indic = !indic;
-
-   // console.log(this.primaryCustomComponent);
-     ///console.log( this.primaryCustomComponent.valid() );
- }
 
 
-//  Toggle() {
-//     console.log("tog");
-//  }
 
   public clearFunc(): void {
     //console.log('clear');
@@ -85,7 +68,6 @@ export class AppComponent implements OnInit , AfterViewInit {
   // statusChang(): void {
   //   this.primaryCustomComponent.handleFormChanges();
 
-    
   // }
 
   valSt(event) {
@@ -94,17 +76,14 @@ export class AppComponent implements OnInit , AfterViewInit {
     // console.log(event);
   }
 
-  
+
   public submit(): void {
     this.primaryCustomComponent.save();
 
     ///console.log(this.primaryCustomComponent);
   }
 
-  // statusChanges() {
-  //   this.primaryCustomComponent.valid();
-  //   //return this.primaryCustomComponent.valid;  
-  // }
+
 
 }
 

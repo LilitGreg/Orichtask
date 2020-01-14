@@ -45,12 +45,6 @@ export class CustomerComponent implements OnInit {
    @Output() validStatus: EventEmitter<boolean> = new EventEmitter();
 
 
-   // @Output() CustomTogg: EventEmitter<Customer> = new EventEmitter();
-
-
-
- // @Input() property: string = 'default';
-
    public arignanq = 'outputtext';
 
 
@@ -67,7 +61,7 @@ export class CustomerComponent implements OnInit {
 
   ngOnInit() {
     this.customerForm = this.fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
+      firstName: ['Lilit', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       lastName: ['', [Validators.required,  Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
       emailGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
@@ -176,13 +170,7 @@ export class CustomerComponent implements OnInit {
 
 
   valid()  {
-    /// return this.customerForm.valid;
-    // let changeValid =this.customerForm.valid;
 
-    // console.log(changeValid);
-    //  const statuss = this.customerForm.valid;
-
-    //  return status;
 
      console.log(this.customerForm.valid);
 
@@ -191,35 +179,31 @@ export class CustomerComponent implements OnInit {
 
 
   reset() {
-    // console.log("clear1");
 
-    // const firstN = this.customerForm.get('firstName');
-    // console.log(firstN);
     this.customerForm.reset();
 
-    // console.log(this.customerForm.reset());
 
 
   }
 
 
-  ari() {
+  // ari() {
 
-    // status = this.customerForm.status;
+  //   // status = this.customerForm.status;
 
-    this.customerForm.statusChanges.subscribe(status => {
-      console.log('ari from child: '  + status);
-      // return status;
-      if (status === 'VALID') {
-        this.validStatus.emit(true);
-      } else {
-        this.validStatus.emit(false);
-      }
+  //   this.customerForm.statusChanges.subscribe(status => {
+  //     console.log('ari from child: '  + status);
+  //     // return status;
+  //     if (status === 'VALID') {
+  //       this.validStatus.emit(true);
+  //     } else {
+  //       this.validStatus.emit(false);
+  //     }
 
-    });
+  //   });
 
-     // this.validStatus.emit(status);
+  //    // this.validStatus.emit(status);
 
-  }
+  // }
 
 }

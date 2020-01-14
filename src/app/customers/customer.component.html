@@ -116,7 +116,8 @@
                  placeholder="Phone"
                  formControlName="phone"
                  pattern="^\d{3}-\d{3}-\d{4}$"
-                 [ngClass]="{'is-invalid': !customerForm.get('phone').valid }" />
+                 [ngClass]="{'is-invalid': !customerForm.get('phone').valid }"
+                 disabled />
           <span class="invalid-feedback">
             <span *ngIf="customerForm.get('phone').errors?.required">
               Please enter your phone number.
