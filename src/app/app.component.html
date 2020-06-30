@@ -4,6 +4,11 @@
    #CustomerComponent></app-customer>
 
 
+   <app-dynamic [custom] = "title"  (validStatus) ="valSt($event)"
+   #DyanmicComponent>
+
+   </app-dynamic>
+
 </div>
 
 <!-- {{validStatus}} -->
@@ -83,7 +88,7 @@
       style="width:80px"
       (click) = "submit()"
 
-      [disabled] = "!validInvalid "
+      [disabled] = "!validInvalid || shouldShow"
 
       >
       Submit

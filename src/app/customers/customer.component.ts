@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, ViewChild,  EventEmitter, Output  } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, AbstractControl, ValidatorFn, FormArray, NgForm } from '@angular/forms';
 
+
 import { debounceTime } from 'rxjs/operators';
 
 import { Customer } from './customer';
@@ -36,7 +37,7 @@ function ratingRange(min: number, max: number): ValidatorFn {
 })
 export class CustomerComponent implements OnInit {
 
-  @ViewChild(NgForm, {static: false}) customreRefrence: NgForm;
+  ///@ViewChild(NgForm, {static: false}) customreRefrence: NgForm;
 
   customerForm: FormGroup;
   customer = new Customer();
@@ -63,6 +64,8 @@ export class CustomerComponent implements OnInit {
     this.customerForm = this.fb.group({
       firstName: ['Lilit', [Validators.required, Validators.minLength(3), Validators.pattern('[a-zA-Z ]*')]],
       lastName: ['', [Validators.required,  Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]],
+       dayarrangement: ['', [Validators.required] ],
+      //dayarrangements: this.fb.array([this.buildAddress()]),
       emailGroup: this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         confirmEmail: ['', Validators.required],
@@ -79,6 +82,8 @@ export class CustomerComponent implements OnInit {
     );
 
     const emailControl = this.customerForm.get('emailGroup.email');
+
+
     emailControl.valueChanges.pipe(
       debounceTime(1000)
     ).subscribe(
@@ -100,9 +105,22 @@ export class CustomerComponent implements OnInit {
   });
 
 
-
-
   }
+
+
+
+  // public modelChanged(newObj) {
+
+  //   console.log(newObj);
+  //   // do something with new value
+  //   if (newObj !== null) {
+  //     console.log(newObj);
+  //   }
+  // }
+
+  // public somethingChanged(): void {
+
+  // }
 
 
   // handleFormChanges(): void {

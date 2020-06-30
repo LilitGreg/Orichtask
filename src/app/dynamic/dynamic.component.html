@@ -1,0 +1,104 @@
+<div class="card">
+  <div class="card-header">
+    Sign Up!
+  </div>
+
+  <div class="card-body">
+    <form novalidate
+          (ngSubmit)="save()"
+          [formGroup]="dynamicForm"
+          #customreRefrence="ngForm"
+
+          >
+         <h1>  {{custom}} </h1>
+
+
+
+
+
+      <div class="form-group row mb-2">
+        <label class="col-md-2 col-form-label"   for="firstNameId">First Name</label>
+        <div class="col-md-8">
+          <input class="form-control"
+                 id="firstNameId"
+                 type="text"
+                 placeholder="First Name (required)"
+                 formControlName="firstName"
+
+                 [ngClass]="{'is-invalid': (dynamicForm.get('firstName').touched ||
+                                            dynamicForm.get('firstName').dirty) &&
+                                            !dynamicForm.get('firstName').valid }" />
+          <span class="invalid-feedback">
+            <span *ngIf="dynamicForm.get('firstName').errors?.required">
+              Please enter your first name.
+            </span>
+            <span *ngIf="dynamicForm.get('firstName').errors?.minlength">
+              The first name must be longer than 3 characters.
+            </span>
+
+            <span *ngIf="dynamicForm.get('firstName').errors?.pattern">
+              First Name could contains only the letters.
+            </span>
+          </span>
+        </div>
+      </div>
+
+
+    <div formArrayName="items"
+      *ngFor="let item of dynamicForm.get('items').controls; let i = index;">
+      <div [formGroupName]="i" class="border">
+        <input formControlName="name" placeholder="Item name"> <br>
+        <input type="checkbox"  formControlName ="dissenting" />
+        <p class="inline">Dissenting Members</p>
+        <input *ngIf ="dynamicForm.controls.items.controls[i].controls.dissenting.value" formControlName="description" placeholder="Item description">
+
+      </div>
+      Chosen name: {{ dynamicForm.controls.items.controls[i].controls.name.value }}
+
+      <!-- Chosen name: {{ dynamicForm.controls.items.controls[i].controls.name.value }} -->
+    </div>
+
+
+        <div class="form-group row mb-2">
+          <div class="col-md-4">
+            <button class="btn btn-outline-primary"
+                    type="button">
+              Add Another Address
+            </button>
+          </div>
+        </div>
+      <!-- </div> -->
+
+
+
+
+      <div class="form-group row mb-2">
+        <div class="offset-md-2 col-md-4">
+          <button class="btn btn-primary mr-3"
+                  type="submit"
+                  style="width:80px"
+                  [title]="dynamicForm.valid ? 'Save your entered data' : 'Disabled until the form data is valid'"
+                  [disabled]="!dynamicForm.valid">
+            Save
+          </button>
+          <button class="btn btn-outline-secondary"
+                  type="button"
+                  >
+            Test Data
+          </button>
+
+           <!-- <button (click) ="ari()">
+             Test
+           </button> -->
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<br>Dirty: {{ dynamicForm.dirty }}
+<br>Touched: {{ dynamicForm.touched }}
+<br>Valid: {{ dynamicForm.valid }}
+<br>Value: {{ dynamicForm.value | json }}
+<!-- <br>Street: {{ addresses.get('0.street1')?.value }} -->
+<br>Status: {{ dynamicForm.status }}
+<br>&nbsp;
